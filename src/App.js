@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router';
 import Toolbar from './components/Navigation/Toolbar/Toolbar';
 import SideDrawer from './components/Navigation/SideDrawer/SideDrawer';
 import Backdrop from './components/UI/Backdrop/Backdrop';
+import Landing from './components/Landing/Landing';
 import './App.css';
 
 class App extends Component {
@@ -47,7 +48,7 @@ class App extends Component {
               <Route path="/upload" exact>Upload</Route>
               <Route path="/camera" exact>Camera</Route>
               <Route path="/credits" exact>Credits</Route>
-              <Route path="/">Home Page</Route>
+              <Route path="/" component={Landing}></Route>
             </Switch >
           </Switch >
         </main>

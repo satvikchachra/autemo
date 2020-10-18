@@ -39,7 +39,6 @@
 }
 
 .IconsWrapper svg:hover {
-    /* scale: 1.1; */
     transform: scale(1.2);
     transition: transform 0.2s;
 }
@@ -49,8 +48,3 @@
     color: #f00946;
     font-weight: bolder;
 }
-
-/* 
-.IconLogo img {
-    color: #ffffff;
-} */

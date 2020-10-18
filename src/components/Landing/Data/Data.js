@@ -1,11 +1,10 @@
-import tian from '../../../assets/gifs/tian1.gif';
-import one from '../../../assets/gifs/hero.gif';
-import two from '../../../assets/gifs/scientists.gif';
-import l1 from '../../../assets/gifs/level1.gif';
-import l2 from '../../../assets/gifs/level2.gif';
-import l3 from '../../../assets/gifs/level3.gif';
+import faceExpressions from '../../../assets/gifs/faceExpressions.gif';
+import hero from '../../../assets/gifs/hero.gif';
+import scientists from '../../../assets/gifs/scientists.gif';
+import level1 from '../../../assets/gifs/level1.gif';
+import level2 from '../../../assets/gifs/level2.gif';
+import level3 from '../../../assets/gifs/level3.gif';
 import form from '../../../assets/gifs/form.gif';
-
 
 export const homeObjHero = {
     lightBg: false,
@@ -17,7 +16,7 @@ export const homeObjHero = {
     buttonLabel: 'Get Started',
     buttonLink: '/levels',
     imgStart: '',
-    src: one,
+    src: hero,
     alt: 'Robot GIF',
     btnSize: 'WideBtn',
     btnColor: 'BlueClr',
@@ -35,13 +34,12 @@ export const homeObjDoctor = {
     buttonLabel: 'Learn more',
     buttonLink: '/credits',
     imgStart: 'start',
-    src: two,
+    src: scientists,
     alt: 'Scientists GIF',
     btnSize: 'WideBtn',
     btnColor: 'BlueClr',
     btnStyle: 'Primary',
 }
-
 
 export const homeObjImage = {
     lightBg: false,
@@ -53,13 +51,12 @@ export const homeObjImage = {
     buttonLabel: 'Take Quiz',
     buttonLink: '/level1',
     imgStart: '',
-    src: l1,
+    src: level1,
     alt: 'Image GIF',
     btnSize: 'WideBtn',
     btnColor: 'BlueClr',
     btnStyle: 'Primary'
 }
-
 
 export const homeObjAudio = {
     lightBg: true,
@@ -71,13 +68,12 @@ export const homeObjAudio = {
     buttonLabel: 'Take Quiz',
     buttonLink: '/level2',
     imgStart: 'start',
-    src: l2,
+    src: level2,
     alt: 'Audio GIF',
     btnSize: 'WideBtn',
     btnColor: 'BlueClr',
     btnStyle: 'Primary'
 }
-
 
 export const homeObjVideo = {
     lightBg: false,
@@ -89,13 +85,12 @@ export const homeObjVideo = {
     buttonLabel: 'Take Quiz',
     buttonLink: '/level3',
     imgStart: '',
-    src: l3,
+    src: level3,
     alt: 'Video GIF',
     btnSize: 'WideBtn',
     btnColor: 'BlueClr',
     btnStyle: 'Primary'
 }
-
 
 export const homeObjCamera = {
     lightBg: true,
@@ -107,13 +102,12 @@ export const homeObjCamera = {
     buttonLabel: 'Go Live',
     buttonLink: '/camera',
     imgStart: 'start',
-    src: tian,
+    src: faceExpressions,
     alt: 'Senitment Analysis GIF',
     btnSize: 'WideBtn',
     btnColor: 'BlueClr',
     btnStyle: 'Primary'
 }
-
 
 export const homeObjUpload = {
     lightBg: false,
