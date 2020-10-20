@@ -5,9 +5,6 @@ import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 
 const drawerToggle = props => {
     let element = "";
-        // <button className={classes.ToggleButton} onClick={() => props.click()}>
-        //     <FontAwesomeIcon icon={faBars} size="lg" color="white" />
-        // </button>;
 
     if (props.icon) {
         element =

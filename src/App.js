@@ -4,6 +4,7 @@ import Toolbar from './components/Navigation/Toolbar/Toolbar';
 import SideDrawer from './components/Navigation/SideDrawer/SideDrawer';
 import Backdrop from './components/UI/Backdrop/Backdrop';
 import Landing from './components/Landing/Landing';
+import LevelScreen from './components/LevelScreen/LevelScreen';
 import './App.css';
 
 class App extends Component {
@@ -41,7 +42,7 @@ class App extends Component {
         <main className="Main" style={{ height: '100%' }}>
           <Switch>
             <Switch>
-              <Route path="/levels">Levels Page</Route>
+              <Route path="/levels" exact component={LevelScreen}></Route>
               <Route path="/level1" exact>Level1</Route>
               <Route path="/level2" exact>Level2</Route>
               <Route path="/level3" exact>Level3</Route>
