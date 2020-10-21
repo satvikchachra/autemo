@@ -2,6 +2,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 
 const level1 = require('./routes/level1');
+const level2 = require('./routes/level2');
+const level3 = require('./routes/level3');
 
 require('dotenv').config(); // For emvironment variables
 
@@ -26,8 +28,8 @@ app.use(function (req, res, next) {
 });
 
 app.use('/levelOne', level1);
-// app.use('/levelTwo', level2);
-// app.use('/levelThree', level3);
+app.use('/levelTwo', level2);
+app.use('/levelThree', level3);
 
 const port = process.env.PORT || 5000;
 

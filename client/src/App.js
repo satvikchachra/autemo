@@ -5,6 +5,7 @@ import SideDrawer from './components/Navigation/SideDrawer/SideDrawer';
 import Backdrop from './components/UI/Backdrop/Backdrop';
 import Landing from './components/Landing/Landing';
 import LevelScreen from './components/LevelScreen/LevelScreen';
+import Credits from './components/Credits/Credits';
 import './App.css';
 
 class App extends Component {
@@ -48,7 +49,7 @@ class App extends Component {
               <Route path="/level3" exact>Level3</Route>
               <Route path="/upload" exact>Upload</Route>
               <Route path="/camera" exact>Camera</Route>
-              <Route path="/credits" exact>Credits</Route>
+              <Route path="/credits" exact component={Credits}></Route>
               <Route path="/" component={Landing}></Route>
             </Switch >
           </Switch >
