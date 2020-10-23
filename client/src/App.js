@@ -6,6 +6,9 @@ import Backdrop from './components/UI/Backdrop/Backdrop';
 import Landing from './components/Landing/Landing';
 import LevelScreen from './components/LevelScreen/LevelScreen';
 import Credits from './components/Credits/Credits';
+import Level1 from './components/Levels/Level1/Level1';
+import Level2 from './components/Levels/Level2/Level2';
+import Level3 from './components/Levels/Level3/Level3';
 import './App.css';
 
 class App extends Component {
@@ -44,9 +47,9 @@ class App extends Component {
           <Switch>
             <Switch>
               <Route path="/levels" exact component={LevelScreen}></Route>
-              <Route path="/level1" exact>Level1</Route>
-              <Route path="/level2" exact>Level2</Route>
-              <Route path="/level3" exact>Level3</Route>
+              <Route path="/level1" exact component={Level1} />
+              <Route path="/level2" exact component={Level2} />
+              <Route path="/level3" exact component={Level3} />
               <Route path="/upload" exact>Upload</Route>
               <Route path="/camera" exact>Camera</Route>
               <Route path="/credits" exact component={Credits}></Route>
