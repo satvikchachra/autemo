@@ -10,7 +10,6 @@ import ReactPlayer from 'react-player/lazy';
 const Questionare = props => {
 
     const correct_answer = props.question.correct_answer;
-    console.log(props.question.correct_answer, props.question.incorrect_answers);
     const shuffled_answers = [...props.question.shuffled_answers];
 
     const level1Hero = (<img src={props.question.hostedURL} style={{

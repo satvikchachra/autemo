@@ -30,10 +30,7 @@ class Level extends Component {
     componentDidMount() {
 
         axios.get(this.API_URL)
-            .then(res => {
-                console.log('LOGGING res data.....', res.data);
-                return res.data;
-            })
+            .then(res => res.data)
             .catch(err => {
                 alert("Unable to connect with Database. Please try again later.", err);
             })
@@ -47,8 +44,6 @@ class Level extends Component {
 
                 // Set fetched questions in state
                 this.setState({ questions: questions });
-
-                console.log(this.state.questions);
             });
     }
 
