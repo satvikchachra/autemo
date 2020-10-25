@@ -1,7 +1,7 @@
 import React from 'react';
 import Level from '../../../containers/Level/Level';
 
-const API_URL = 'http://localhost:5000/levelTwo';
+const API_URL = '/levelTwo';
 
 const LEVEL = 2;
 
