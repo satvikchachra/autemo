@@ -62,7 +62,6 @@ class Level extends Component {
     }
 
     nextQuestionHandler = () => {
-        console.log("PRINT " + this.state.current_question_index);
 
         let check_level_completed = false;
 
@@ -92,7 +91,6 @@ class Level extends Component {
                         <div className={classes.Container} >
 
                             <Questionare
-                                // hero={this.props.hero}
                                 score={this.state.score}
                                 level={this.state.level}
                                 showAnswer={this.state.show_answer}
