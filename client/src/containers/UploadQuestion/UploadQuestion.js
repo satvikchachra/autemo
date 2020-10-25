@@ -81,7 +81,7 @@ class UploadQuestion extends Component {
             incorrect_answers_obj = this.objectWithoutKey(incorrect_answers_obj, x);
         }
 
-        console.log('INCORRECT: ', arr);
+        // console.log('INCORRECT: ', arr);
         this.setState({
             correct_answer: e.target.value,
             incorrect_answers: arr
@@ -131,14 +131,14 @@ class UploadQuestion extends Component {
         }
 
 
-        console.log(ques);
+        // console.log(ques);
 
         if (shouldUploadQuestion && shouldUploadURL) {
             switch (this.state.level) {
                 case 'level1': {
                     axios.post('http://localhost:5000/levelOne', ques)
                         .then(res => {
-                            console.log(res.data);
+                            // console.log(res.data);
                             this.responseHandler('Question Added Successfully!', 'Success');
                         })
                         .catch(err => console.log(err));
@@ -149,7 +149,7 @@ class UploadQuestion extends Component {
                 case 'level2': {
                     axios.post('http://localhost:5000/levelTwo', ques)
                         .then(res => {
-                            console.log(res.data);
+                            // console.log(res.data);
                             this.responseHandler('Question Added Successfully!', 'Success');
                         })
                         .catch(err => console.log(err));
@@ -160,7 +160,7 @@ class UploadQuestion extends Component {
                 case 'level3': {
                     axios.post('http://localhost:5000/levelThree', ques)
                         .then(res => {
-                            console.log(res.data);
+                            // console.log(res.data);
                             this.responseHandler('Question Added Successfully!', 'Success');
                         })
                         .catch(err => console.log(err));

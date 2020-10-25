@@ -10,6 +10,7 @@ import Level1 from './components/Levels/Level1/Level1';
 import Level2 from './components/Levels/Level2/Level2';
 import Level3 from './components/Levels/Level3/Level3';
 import UploadQuestion from './containers/UploadQuestion/UploadQuestion';
+import FaceExpression from './components/FaceExpression/FaceExpression';
 import './App.css';
 
 class App extends Component {
@@ -52,7 +53,7 @@ class App extends Component {
               <Route path="/level2" exact component={Level2} />
               <Route path="/level3" exact component={Level3} />
               <Route path="/upload" exact component={UploadQuestion} />
-              <Route path="/camera" exact>Camera</Route>
+              <Route path="/camera" exact component={FaceExpression} />
               <Route path="/credits" exact component={Credits}></Route>
               <Route path="/" component={Landing}></Route>
             </Switch >
