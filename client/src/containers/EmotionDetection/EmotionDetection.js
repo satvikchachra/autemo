@@ -22,10 +22,20 @@ class EmotionDetection extends Component {
             // WebCam
             // let stream;
             try {
-                stream = await navigator.mediaDevices.getUserMedia({
-                    audio: false,
-                    video: {}
-                });
+
+                navigator.getUserMedia = (navigator.getUserMedia ||
+                    navigator.webkitGetUserMedia ||
+                    navigator.mozGetUserMedia ||
+                    navigator.msGetUserMedia);
+
+                if (navigator.getUserMedia) {
+
+                    stream = await navigator.mediaDevices.getUserMedia({
+                        audio: false,
+                        video: {}
+                    });
+                }
+
             } catch (err) {
                 alert(
                     "Sorry - Your Browser isn't allowing access to your webcam.  Try a different browser for this device?"
