@@ -136,7 +136,7 @@ class UploadQuestion extends Component {
         if (shouldUploadQuestion && shouldUploadURL) {
             switch (this.state.level) {
                 case 'level1': {
-                    axios.post('http://localhost:5000/levelOne', ques)
+                    axios.post('/levelOne', ques)
                         .then(res => {
                             // console.log(res.data);
                             this.responseHandler('Question Added Successfully!', 'Success');
@@ -147,7 +147,7 @@ class UploadQuestion extends Component {
                 }
 
                 case 'level2': {
-                    axios.post('http://localhost:5000/levelTwo', ques)
+                    axios.post('/levelTwo', ques)
                         .then(res => {
                             // console.log(res.data);
                             this.responseHandler('Question Added Successfully!', 'Success');
@@ -158,7 +158,7 @@ class UploadQuestion extends Component {
                 }
 
                 case 'level3': {
-                    axios.post('http://localhost:5000/levelThree', ques)
+                    axios.post('/levelThree', ques)
                         .then(res => {
                             // console.log(res.data);
                             this.responseHandler('Question Added Successfully!', 'Success');
@@ -169,7 +169,7 @@ class UploadQuestion extends Component {
                 }
 
                 default: {
-                    axios.post('http://localhost:5000/levelOne', ques)
+                    axios.post('/levelOne', ques)
                         .then(res => console.log(res.data))
                         .catch(err => console.log(err));
 
