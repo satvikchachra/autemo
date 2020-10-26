@@ -22,19 +22,50 @@ class EmotionDetection extends Component {
             // WebCam
             // let stream;
             try {
-
-                navigator.getUserMedia = (navigator.getUserMedia ||
-                    navigator.webkitGetUserMedia ||
-                    navigator.mozGetUserMedia ||
-                    navigator.msGetUserMedia);
-
-                if (navigator.getUserMedia) {
-
-                    stream = await navigator.mediaDevices.getUserMedia({
-                        audio: false,
-                        video: {}
-                    });
+                if (navigator.mediaDevices === undefined) {
+                    navigator.mediaDevices = {};
                 }
+
+                if (navigator.mediaDevices.getUserMedia === undefined) {
+                    navigator.mediaDevices.getUserMedia = async (constraints) => {
+                        let getUserMedia = navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
+
+                        if (!getUserMedia) {
+                            alert("Not compatible with the current browser. Please try a different browser.");
+                            return Promise.reject(new Error("Not compatible with current browser."));
+                        }
+                        else {
+                            return new Promise((resolve, reject) => {
+                                getUserMedia.call(navigator, constraints, resolve, reject);
+                            });
+                            
+                        }
+                    }
+                }
+
+                stream = await navigator.mediaDevices.getUserMedia({
+                    audio: false,
+                    video: { facingMode: "user" }
+                });
+
+                // navigator.getUserMedia = (navigator.getUserMedia ||
+                //     navigator.webkitGetUserMedia ||
+                //     navigator.mozGetUserMedia ||
+                //     navigator.msGetUserMedia);
+
+                // if (navigator.getUserMedia) {
+
+                //     stream = await navigator.mediaDevices.getUserMedia({
+                //         audio: false,
+                //         video: { facingMode: "user" }
+                //     });
+                // }
+
+                // else {
+                //     alert(
+                //         "Sorry - Your Browser isn't allowing access to your webcam.  Try a different browser for this device?"
+                //     );
+                // }
 
             } catch (err) {
                 alert(
