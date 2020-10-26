@@ -84,7 +84,7 @@ class Level extends Component {
 
         return (
             this.state.level_completed ?
-                <LevelCompleted level={this.state.level} score={this.state.score} />
+                <LevelCompleted level={this.state.level} score={this.state.score} questionsLength={this.state.questions.length} />
                 :
                 (
                     this.state.questions.length > 0 ?

@@ -14,15 +14,19 @@ const levelCompleted = props => {
     const currLevel = '/levels';
     const nextLevel = props.level === 3 ? '/' : `/level${props.level + 1}`;
 
+    const percentScored = ((props.score / 10) / props.questionsLength) * 100;
+    // console.log("score ", props.score);
+    // console.log("percent ", percentScored);
+
     return (
         <div className={classes.LevelCompleted}>
             <div className={classes.LevelCompleteHeader}>
                 Level {props.level} Completed!
             </div>
             <div className={classes.StarsContainer}>
-                <div className={classes.Star1}>{props.score > 0 ? goldStar : emptyStar}</div>
-                <div className={classes.Star2}>{props.score > 30 ? goldStar : emptyStar}</div>
-                <div className={classes.Star3}>{props.score > 60 ? goldStar : emptyStar}</div>
+                <div className={classes.Star1}>{percentScored > 0 ? goldStar : emptyStar}</div>
+                <div className={classes.Star2}>{percentScored > 30 ? goldStar : emptyStar}</div>
+                <div className={classes.Star3}>{percentScored > 60 ? goldStar : emptyStar}</div>
             </div>
             <div className={classes.ScoreContainer}>
                 Your Score : {props.score}
@@ -39,6 +43,7 @@ const levelCompleted = props => {
                 {whale}
             </div>
         </div>)
-};
+}
+
 
 export default levelCompleted;

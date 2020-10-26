@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import * as faceapi from 'face-api.js';
+
 import classes from './EmotionDetection.module.css';
 
 const videoRef = React.createRef();
@@ -11,6 +12,22 @@ let stream;
 class EmotionDetection extends Component {
 
     componentDidMount() {
+
+        const handleSuccess = (webcam_stream) => {
+            videoRef.current.srcObject = webcam_stream;
+
+            window.streamStorage = webcam_stream;
+
+            return new Promise((resolve, _) => {
+                videoRef.current.onloadedmetadata = () => {
+                    requestInterval = setInterval(async () => {
+                        this.detectExpression();
+                        resolve();
+                    }, 25);
+                };
+            });
+        }
+
         const loadModels = async () => {
             // Load models
             const MODEL_URL = process.env.PUBLIC_URL + '/models';
@@ -22,31 +39,33 @@ class EmotionDetection extends Component {
             // WebCam
             // let stream;
             try {
-                if (navigator.mediaDevices === undefined) {
-                    navigator.mediaDevices = {};
-                }
+                // if (navigator.mediaDevices === undefined) {
+                //     navigator.mediaDevices = {};
+                // }
 
-                if (navigator.mediaDevices.getUserMedia === undefined) {
-                    navigator.mediaDevices.getUserMedia = async (constraints) => {
-                        let getUserMedia = navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
+                // if (navigator.mediaDevices.getUserMedia === undefined) {
+                //     navigator.mediaDevices.getUserMedia = async (constraints) => {
+                //         let getUserMedia = navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
 
-                        if (!getUserMedia) {
-                            alert("Not compatible with the current browser. Please try a different browser.");
-                            return Promise.reject(new Error("Not compatible with current browser."));
-                        }
-                        else {
-                            return new Promise((resolve, reject) => {
-                                getUserMedia.call(navigator, constraints, resolve, reject);
-                            });
-                            
-                        }
-                    }
-                }
+                //         if (!getUserMedia) {
+                //             // alert("Not compatible with the current browser. Please try a different browser.");
+                //             return Promise.reject(new Error("Not compatible with current browser."));
+                //         }
+                //         else {
+                //             return new Promise((resolve, reject) => {
+                //                 getUserMedia.call(navigator, constraints, resolve, reject);
+                //             });
+
+                //         }
+                //     }
+                // }
 
                 stream = await navigator.mediaDevices.getUserMedia({
                     audio: false,
                     video: { facingMode: "user" }
                 });
+
+                handleSuccess(stream);
 
                 // navigator.getUserMedia = (navigator.getUserMedia ||
                 //     navigator.webkitGetUserMedia ||
@@ -69,24 +88,11 @@ class EmotionDetection extends Component {
 
             } catch (err) {
                 alert(
-                    "Sorry - Your Browser isn't allowing access to your webcam.  Try a different browser for this device?"
+                    "Sorry! Your Browser isn't allowing access to your webcam due to insecure connection. Try a different browser for this device?"
                 );
                 console.log("getUserMedia Error", err);
             }
 
-            videoRef.current.srcObject = stream;
-
-            window.streamStorage = stream;
-
-            return new Promise((resolve, _) => {
-                videoRef.current.onloadedmetadata = () => {
-                    requestInterval = setInterval(async () => {
-                        this.detectExpression();
-                        resolve();
-                    }, 25);
-
-                };
-            });
         };
 
         loadModels();
