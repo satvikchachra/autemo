@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router';
+import { BrowserRouter } from 'react-router-dom';
 import Toolbar from './components/Navigation/Toolbar/Toolbar';
 import SideDrawer from './components/Navigation/SideDrawer/SideDrawer';
 import Backdrop from './components/UI/Backdrop/Backdrop';
@@ -39,14 +40,14 @@ class App extends Component {
 
     return (
       <div className="App" style={{ height: '100%' }}>
-        <div className="ToolbarSideDrawer">
-          <Toolbar show={this.state.sideDrawerOpen} drawerClickHandler={this.drawerToggleClickHandler} />
-          <SideDrawer show={this.state.sideDrawerOpen} />
-          {backdrop}
-        </div>
+        <BrowserRouter>
+          <div className="ToolbarSideDrawer">
+            <Toolbar show={this.state.sideDrawerOpen} drawerClickHandler={this.drawerToggleClickHandler} />
+            <SideDrawer show={this.state.sideDrawerOpen} />
+            {backdrop}
+          </div>
 
-        <main className="Main" style={{ height: '100%' }}>
-          <Switch>
+          <main className="Main" style={{ height: '100%' }}>
             <Switch>
               <Route path="/levels" exact component={LevelScreen}></Route>
               <Route path="/level1" exact component={Level1} />
@@ -57,8 +58,8 @@ class App extends Component {
               <Route path="/credits" exact component={Credits}></Route>
               <Route path="/" component={Landing}></Route>
             </Switch >
-          </Switch >
-        </main>
+          </main>
+        </BrowserRouter>
       </div >
     );
 
