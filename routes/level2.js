@@ -1,6 +1,5 @@
-const express = require('express');
 const Level2 = require('../models/level2'); // Imported a Class
-const router = express();
+const router = require('express').Router();
 
 // Get all questions
 router.get('/', async (req, res) => {

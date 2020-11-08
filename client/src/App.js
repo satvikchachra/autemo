@@ -49,18 +49,18 @@ class App extends Component {
 
           <main className="Main" style={{ height: '100%' }}>
             <Switch>
-              <Route path="/levels" exact component={LevelScreen}></Route>
+              <Route path="/levels" exact component={LevelScreen} />
               <Route path="/level1" exact component={Level1} />
               <Route path="/level2" exact component={Level2} />
               <Route path="/level3" exact component={Level3} />
               <Route path="/upload" exact component={UploadQuestion} />
               <Route path="/camera" exact component={FaceExpression} />
-              <Route path="/credits" exact component={Credits}></Route>
-              <Route path="/" component={Landing}></Route>
-            </Switch >
+              <Route path="/credits" exact component={Credits} />
+              <Route path="/" component={Landing} />
+            </Switch>
           </main>
         </BrowserRouter>
-      </div >
+      </div>
     );
 
   }
